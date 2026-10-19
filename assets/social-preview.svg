@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640">
+  <rect width="1280" height="640" fill="#FAF7F2"/>
+  <rect x="0" y="0" width="1280" height="10" fill="#C2410C"/>
+
+  <text x="80" y="150" font-family="Helvetica, Arial, sans-serif" font-size="76" font-weight="bold" fill="#1F2933">Explain Simply</text>
+  <text x="80" y="208" font-family="Helvetica, Arial, sans-serif" font-size="32" fill="#3E4C59">An AI skill that explains anything in plain language.</text>
+  <text x="80" y="250" font-family="Helvetica, Arial, sans-serif" font-size="32" fill="#3E4C59">One everyday picture. Your real numbers. The catch.</text>
+
+  <rect x="80" y="300" width="1120" height="110" rx="14" fill="#EDEAE4"/>
+  <text x="112" y="342" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="bold" fill="#616E7C">BEFORE</text>
+  <text x="112" y="382" font-family="Helvetica, Arial, sans-serif" font-size="26" fill="#616E7C">"MySQL uses idx_orders_customer_id, then jumps to each order's full row…"</text>
+
+  <rect x="80" y="428" width="1120" height="110" rx="14" fill="#FFFFFF" stroke="#C2410C" stroke-width="3"/>
+  <text x="112" y="470" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="bold" fill="#C2410C">AFTER</text>
+  <text x="112" y="510" font-family="Helvetica, Arial, sans-serif" font-size="26" fill="#1F2933">"The orders table is like a big room full of folders. The index is a small notebook."</text>
+
+  <text x="80" y="595" font-family="Helvetica, Arial, sans-serif" font-size="24" fill="#3E4C59">Agent Skill for Claude · ChatGPT &amp; Codex · Cursor · GitHub Copilot · Gemini CLI</text>
+</svg>
