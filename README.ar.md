@@ -57,38 +57,43 @@ Code)، وفي أدوات أخرى تدعم Agent Skills مثل **ChatGPT وCode
 ### في تطبيق Claude أو على claude.ai (بدون برمجة)
 
 1. افتح **Settings > Capabilities** وفعّل **Code execution and file creation**. المهارات تحتاجه.
-2. نزّل الملف
-   [explain-simply.zip](https://github.com/AbdulrahmanMasoud/explain-simply/releases/latest/download/explain-simply.zip)
-   ولا تفك الضغط.
-3. في Claude ادخل على **Customize > Skills**، واضغط **+** ثم **+ Create skill** ثم
-   **Upload a skill**، واختر الملف `explain-simply.zip`.
-4. تأكد أن المهارة مفعّلة في قائمة المهارات.
+2. ادخل على **Customize > Plugins** واضغط **Add > Add marketplace**.
+3. اكتب `AbdulrahmanMasoud/explain-simply`.
+4. افتح **Explain Simply** من القائمة واضغط **Add**.
+
+تُحفظ في حسابك، فتعمل أيضًا في Cowork وفي Claude Code عند تسجيل دخولك هناك، وتصلك التحديثات
+تلقائيًا.
 
 ### في Claude Code
 
+اكتب هذا الأمر داخل Claude Code:
+
 </div>
 
-```bash
-git clone https://github.com/AbdulrahmanMasoud/explain-simply.git
-mkdir -p ~/.claude/skills
-cp -r explain-simply/explain-simply ~/.claude/skills/
+```
+/plugin install explain-simply --marketplace AbdulrahmanMasoud/explain-simply
 ```
 
 <div dir="rtl">
 
-ثم افتح جلسة جديدة في Claude Code.
-
 ### في أدوات أخرى (ChatGPT وCodex وCursor وGitHub Copilot وGemini CLI)
 
-انسخ مجلد `explain-simply` إلى مجلد المهارات في الأداة كما يوضح دليلها. الروابط موجودة في
-[الصفحة الإنجليزية](README.md#install-in-other-ai-tools)، والقائمة الكاملة للأدوات على
-[agentskills.io/clients](https://agentskills.io/clients).
+</div>
+
+```bash
+npx skills add AbdulrahmanMasoud/explain-simply
+```
+
+<div dir="rtl">
+
+يسألك هذا الأمر عن الأدوات التي تريد التثبيت فيها. باقي طرق التثبيت موجودة في
+[الصفحة الإنجليزية](README.md#install-in-claude-code).
 
 ---
 
 ## طريقة الاستخدام
 
-اكتب بشكل عادي، والمهارة تشتغل وحدها لما تقول مثلًا:
+اكتب بشكل عادي، وتعمل المهارة تلقائيًا عندما تقول مثلًا:
 
 - "مش فاهم، ممكن تبسطها؟"
 - "اشرحها لي كأني مش تقني."
@@ -96,7 +101,7 @@ cp -r explain-simply/explain-simply ~/.claude/skills/
 - "يعني إيه two-factor authentication؟"
 - "المبرمج بيقول كذا، يعني إيه؟ وهل يستاهل؟"
 
-وفي Claude Code تقدر تستدعيها مباشرة: `/explain-simply ليه محتاجين CDN`
+ويمكنك في Claude Code استدعاؤها مباشرة: `/explain-simply:explain-simply ليه محتاجين CDN`
 
 **نصيحة:** اكتب أرقامك الحقيقية، مثل مبلغ القرض أو وقت تحميل الموقع أو قيمة الفاتورة. الشرح
 سيستخدمها ويصبح أوضح بكثير.
@@ -124,7 +129,7 @@ cp -r explain-simply/explain-simply ~/.claude/skills/
 
 ### هل هي للمبرمجين فقط؟
 
-لا. تنفع لأي موضوع صعب: التكنولوجيا، والفلوس، والعقود، والصحة، والعلوم، وقرارات العمل. ثلاثة من
+لا. تصلح لأي موضوع صعب: التكنولوجيا، والفلوس، والعقود، والصحة، والعلوم، وقرارات العمل. ثلاثة من
 الأمثلة الأربعة ليست عن البرمجة.
 
 ### هل تعطي نصائح مالية أو طبية أو قانونية؟
@@ -134,7 +139,7 @@ cp -r explain-simply/explain-simply ~/.claude/skills/
 
 ### كيف أضيف تشبيهات من مجالي؟
 
-افتح ملف [`explain-simply/SKILL.md`](explain-simply/SKILL.md) في أي محرر نصوص، وأضف صفوفًا إلى جدول
+انسخ المستودع (Fork)، وافتح ملف [`skills/explain-simply/SKILL.md`](skills/explain-simply/SKILL.md) في أي محرر نصوص، وأضف صفوفًا إلى جدول
 **Choosing the picture**.
 
 </div>

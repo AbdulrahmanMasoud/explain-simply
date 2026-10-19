@@ -1,0 +1,13 @@
+{
+  "name": "explain-simply",
+  "displayName": "Explain Simply",
+  "version": "1.0.0",
+  "description": "Explains anything in plain, everyday language (ELI5 for adults): one everyday picture, your real numbers, and the catch. For anyone, not only developers.",
+  "author": {
+    "name": "Abdulrahman Masoud",
+    "url": "https://github.com/AbdulrahmanMasoud"
+  },
+  "homepage": "https://github.com/AbdulrahmanMasoud/explain-simply",
+  "repository": "https://github.com/AbdulrahmanMasoud/explain-simply",
+  "keywords": ["explain", "eli5", "plain-language", "simple-explanations", "education", "writing"]
+}

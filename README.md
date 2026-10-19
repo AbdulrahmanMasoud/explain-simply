@@ -18,19 +18,24 @@ such as **ChatGPT & Codex, Cursor, GitHub Copilot and Gemini CLI**.
 
 ## Quick install
 
-- **Claude app or claude.ai:** download
-  [explain-simply.zip](https://github.com/AbdulrahmanMasoud/explain-simply/releases/latest/download/explain-simply.zip),
-  then go to **Customize > Skills > + > Create skill > Upload a skill**.
-  [Step-by-step guide](#install-in-the-claude-app-or-on-claudeai)
-- **Claude Code:**
+**Claude Code:** run this inside Claude Code (version 2.1.275 or later):
 
-  ```bash
-  git clone https://github.com/AbdulrahmanMasoud/explain-simply.git
-  mkdir -p ~/.claude/skills && cp -r explain-simply/explain-simply ~/.claude/skills/
-  ```
+```
+/plugin install explain-simply --marketplace AbdulrahmanMasoud/explain-simply
+```
 
-- **ChatGPT & Codex, Cursor, GitHub Copilot, Gemini CLI and others:**
-  [see below](#install-in-other-ai-tools).
+**Claude app or claude.ai:** go to **Customize > Plugins > Add > Add marketplace**, enter
+`AbdulrahmanMasoud/explain-simply`, then open **Explain Simply** and click **Add**.
+It's saved to your account, so it also works in Cowork and Claude Code.
+[Step-by-step guide](#install-in-the-claude-app-or-on-claudeai)
+
+**ChatGPT & Codex, Cursor, GitHub Copilot, Gemini CLI and others:**
+
+```bash
+npx skills add AbdulrahmanMasoud/explain-simply
+```
+
+[More ways to install](#install-in-claude-code)
 
 ---
 
@@ -95,40 +100,67 @@ It also follows a few rules:
 
 ## Install in the Claude app or on claude.ai
 
-No coding needed.
+No coding needed. This repository is a plugin marketplace, so you add it once and get updates
+from it.
 
 1. Open **Settings > Capabilities** and turn on **Code execution and file creation**.
    Skills need it.
-2. Download
-   [explain-simply.zip](https://github.com/AbdulrahmanMasoud/explain-simply/releases/latest/download/explain-simply.zip).
-   Don't unzip it.
-3. In Claude, go to **Customize > Skills**, click **+**, then **+ Create skill**, then
-   **Upload a skill**, and choose `explain-simply.zip`.
-4. Check that the skill is switched on in your skills list.
+2. Go to **Customize > Plugins** and click **Add > Add marketplace**.
+3. Enter `AbdulrahmanMasoud/explain-simply` (or the full link
+   `https://github.com/AbdulrahmanMasoud/explain-simply`).
+4. Open **Explain Simply** in the list and click **Add**.
 
-Want to build the zip yourself? Zip **only** the inner `explain-simply` folder (the one with
-`SKILL.md` inside).
+It's saved to your account, so it also loads in Cowork, and in Claude Code the next time you
+sign in there.
+
+**Or upload it as a skill:** download
+[explain-simply.zip](https://github.com/AbdulrahmanMasoud/explain-simply/releases/latest/download/explain-simply.zip)
+(don't unzip it), then go to **Customize > Skills**, click **+**, then **+ Create skill**, then
+**Upload a skill**. This way you won't get updates automatically.
 
 ## Install in Claude Code
 
-To use it in all your projects:
+**As a plugin (recommended).** Run this inside Claude Code:
+
+```
+/plugin install explain-simply --marketplace AbdulrahmanMasoud/explain-simply
+```
+
+On Claude Code versions older than 2.1.275, use two steps instead:
+
+```
+/plugin marketplace add AbdulrahmanMasoud/explain-simply
+/plugin install explain-simply@explain-simply
+```
+
+To get a newer version later, run `claude plugin update explain-simply@explain-simply` in your
+terminal.
+
+**As a plain skill folder.** To use it in all your projects:
 
 ```bash
 git clone https://github.com/AbdulrahmanMasoud/explain-simply.git
 mkdir -p ~/.claude/skills
-cp -r explain-simply/explain-simply ~/.claude/skills/
+cp -r explain-simply/skills/explain-simply ~/.claude/skills/
 ```
 
-On Windows, copy the inner `explain-simply` folder to `%USERPROFILE%\.claude\skills\`.
+On Windows, copy the `skills/explain-simply` folder to `%USERPROFILE%\.claude\skills\`.
 
 To share it with your team in one project, put the folder at `.claude/skills/explain-simply/`
 inside that project and commit it. Start a new Claude Code session afterwards.
 
 ## Install in other AI tools
 
-Explain Simply uses the open [Agent Skills](https://agentskills.io) format, so the same
-`explain-simply` folder works in other tools that support it. Copy the folder to your tool's
-skills folder, as its own guide explains:
+Explain Simply uses the open [Agent Skills](https://agentskills.io) format, so it works in other
+tools that support it. The quickest way is the [`skills`](https://github.com/vercel-labs/skills)
+installer, which asks which of your tools to install it into:
+
+```bash
+npx skills add AbdulrahmanMasoud/explain-simply
+```
+
+Or copy the `skills/explain-simply` folder to your tool's skills folder, as its own guide
+explains:
 
 | Tool | Guide |
 |---|---|
@@ -152,11 +184,13 @@ Just talk normally. The AI uses the skill on its own when you say things like:
 - "What does *two-factor authentication* actually mean?"
 - "My developer says X. What does that mean, and is it worth it?"
 
-In Claude Code you can also call it directly:
+You can also call it directly. If you installed it as a plugin:
 
 ```
-/explain-simply why our developer wants a CDN
+/explain-simply:explain-simply why our developer wants a CDN
 ```
+
+If you copied the skill folder yourself, it's just `/explain-simply`.
 
 **Tip:** give your real numbers, like your loan amount, your page load time or your bill. The
 explanation will use them, and it becomes much clearer.
@@ -213,6 +247,12 @@ and keeps technical terms in English. You can change this in `SKILL.md`.
 No. In our three tests, the answers with the skill were 4% to 26% shorter, because the skill
 keeps explanations to about one screen.
 
+### Does it slow Claude down or use a lot of tokens?
+
+No. While it's installed, it adds about 200 tokens to each session, just its name and short
+description. The full instructions, about 1,600 tokens, load only when you ask for an
+explanation. These are the estimates Claude Code shows with `claude plugin details explain-simply`.
+
 ### Will it talk to me like a child?
 
 No. It's written for adults who aren't experts in the topic. It keeps the real numbers and the
@@ -225,10 +265,9 @@ diagnosis. It tells you who to ask, like a doctor, a lawyer or your bank.
 
 ### How do I add my own pictures and comparisons?
 
-Open [`explain-simply/SKILL.md`](explain-simply/SKILL.md) in any text editor and add rows to the
-**Choosing the picture** table, for example comparisons from your own industry. If you use the
-Claude app, upload the zip again after editing. In Claude Code, the change works in your next
-session.
+Fork this repository, open [`skills/explain-simply/SKILL.md`](skills/explain-simply/SKILL.md) in
+any text editor, and add rows to the **Choosing the picture** table, for example comparisons
+from your own industry. Then install from your fork instead of this one.
 
 ---
 
@@ -236,10 +275,14 @@ session.
 
 ```
 explain-simply/
+├── .claude-plugin/
+│   ├── plugin.json         plugin details (name, version, author)
+│   └── marketplace.json    makes this repository installable from Claude
+├── skills/
+│   └── explain-simply/
+│       └── SKILL.md        the skill itself
 ├── README.md               this page
 ├── README.ar.md            this page in Arabic
-├── explain-simply/
-│   └── SKILL.md            the skill itself (this is the folder you install)
 ├── examples/               before and after examples
 └── assets/                 the preview image
 ```

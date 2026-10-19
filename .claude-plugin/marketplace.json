@@ -1,0 +1,17 @@
+{
+  "name": "explain-simply",
+  "description": "Explain Simply: a skill that explains anything in plain, everyday language, for anyone.",
+  "owner": {
+    "name": "Abdulrahman Masoud",
+    "url": "https://github.com/AbdulrahmanMasoud"
+  },
+  "plugins": [
+    {
+      "name": "explain-simply",
+      "source": "./",
+      "description": "Explains anything in plain, everyday language (ELI5 for adults): one everyday picture, your real numbers, and the catch.",
+      "category": "productivity",
+      "tags": ["eli5", "plain-language", "explain", "education"]
+    }
+  ]
+}
